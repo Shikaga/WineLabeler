@@ -1,11 +1,24 @@
 <html>
 	<head>
+		<script type="text/javascript" src="lib/handlebars.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
-		<title>New Development Project</title>
+		<script id="entry-template" type="text/x-handlebars-template">
+			<div class="wineLabel">
+				<h1>{{title}}</h1>
+				<div class="body">
+					{{body}}
+				</div>
+			</div>
+		</script>
+		<title>Wine Labeler</title>
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
 		<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
-		Hello World!
+		<button onclick="addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
+		<div id="wineLabels"></div>
 	</body>
+
+	<script>
+	</script>
 </html>

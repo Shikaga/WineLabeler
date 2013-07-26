@@ -20,3 +20,11 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 {
 	color:#528CE0;
 }
+
+.wineLabel {
+	background-color: #faf2cc;
+	width: 300px;
+	min-height: 600px;
+	float: left;
+	margin: 15px;
+}
