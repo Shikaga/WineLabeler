@@ -22,9 +22,24 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 }
 
 .wineLabel {
+	text-align: center;
 	background-color: #faf2cc;
 	width: 300px;
 	min-height: 600px;
 	float: left;
 	margin: 15px;
+}
+
+.wineLabel .header {
+	height: 30%;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.wineLabel .description {
+	height: 60%;
+}
+
+.wineLabel .footer {
+	height: 10%;
 }

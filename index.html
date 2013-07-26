@@ -1,12 +1,24 @@
 <html>
 	<head>
 		<script type="text/javascript" src="lib/handlebars.js"></script>
+		<script type="text/javascript" src="lib/knockout.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/LabelGenerator.js"></script>
 		<script id="entry-template" type="text/x-handlebars-template">
 			<div class="wineLabel">
-				<h1>{{name}}</h1>
+				<div class="header">
+					{{name}}
+				</div>
 				<div class="body">
-					{{description}}
+					<div class="description">
+						{{description}}
+					</div>
+					<div class="other">
+
+					</div>
+				</div>
+				<div class="footer">
+					Drink by : {{drinkByYear}}
 				</div>
 			</div>
 		</script>
@@ -15,10 +27,12 @@
 	</head>
 	<body>
 		<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
-		<button onclick="addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
+		<button onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
 		<div id="wineLabels"></div>
 	</body>
 
 	<script>
+		var labelGenerator = new LabelGenerator();
+		labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
 	</script>
 </html>
