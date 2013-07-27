@@ -1,9 +1,17 @@
 <html>
 	<head>
-		<script type="text/javascript" src="lib/handlebars.js"></script>
+		<title>Wine Labeler</title>
+		<link rel="stylesheet" href="css/main.css">
+
+		<script type="text/javascript" src="lib/mustache.js"></script>
 		<script type="text/javascript" src="lib/knockout.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="lib/ko.mustache.js"></script>
 		<script type="text/javascript" src="js/LabelGenerator.js"></script>
+
+		<script>
+			ko.setTemplateEngine(new ko.mustacheTemplateEngine());
+		</script>
+
 		<script id="entry-template" type="text/x-handlebars-template">
 			<div class="wineLabel">
 				<div class="header">
@@ -20,19 +28,23 @@
 				<div class="footer">
 					Drink by : {{drinkByYear}}
 				</div>
+				<button data-bind='click: makeOlder'>Make Older</button>
 			</div>
 		</script>
-		<title>Wine Labeler</title>
-		<link rel="stylesheet" href="css/main.css">
+
 	</head>
+
 	<body>
 		<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
 		<button onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
-		<div id="wineLabels"></div>
+		<div data-bind="template: { name: 'entry-template', foreach: labelGenerator.viewModel }"></div>
 	</body>
 
 	<script>
-		var labelGenerator = new LabelGenerator();
+		var labelGenerator = new LabelGenerator;
+		labelGenerator.init();
 		labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
 	</script>
+
+
 </html>

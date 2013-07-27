@@ -1,21 +1,26 @@
 /**
- * A class for generating the WineLabel div elements
+ * A class for updating the Wine Label Presentation Model
  * @constructor
  */
 var LabelGenerator = function() {
 	var source = document.getElementById("entry-template").innerHTML;
-	this.template = Handlebars.compile(source);
 }
 
-LabelGenerator.prototype.getWineLabel = function() {
-	var context = {name: "Waiki", description: "Lovely New World Red", drinkByYear: "2018"};
-	var html = this.template(context);
-	var div = document.createElement("span");
-	div.innerHTML = html;
-	return div;
+LabelGenerator.prototype.init = function() {
+	this.viewModel = ko.observableArray([]);
+	ko.applyBindings(this.viewModel);
+	return this;
 }
 
-LabelGenerator.prototype.addWineLabelDiv = function(div) {
-	var wineLabel = this.getWineLabel();
-	div.appendChild(wineLabel);
+
+LabelGenerator.prototype.addWineLabelDiv = function() {
+	var context = {
+		name: ko.observable("Waiki"),
+		description: ko.observable("Lovely New World Red"),
+		drinkByYear: ko.observable(2018),
+		makeOlder: function(){
+			this.drinkByYear(this.drinkByYear()+1);
+		}};
+
+	this.viewModel.push(context);
 }
