@@ -20,7 +20,7 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 		editName: function() {
 			this.nameEditable(!this.nameEditable());
 		},
-		description: ko.observable("Lovely New World Red"),
+		description: ko.observable("Lovely New World Red. Drink with a nice rare steak."),
 		descriptionEditable: ko.observable(false),
 		editDescription: function() {
 			this.descriptionEditable(!this.descriptionEditable());

@@ -47,8 +47,10 @@
 
 	<body>
 		<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
-		<button onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
-		<div data-bind="template: { name: 'entry-template', foreach: labelGenerator.viewModel }"></div>
+		<span data-bind="template: { name: 'entry-template', foreach: labelGenerator.viewModel }"></span>
+		<span class="wineLabel addWineLabel">
+			<button class="addWineLabelButton" onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine Label</button>
+		</span>
 	</body>
 
 	<script>
