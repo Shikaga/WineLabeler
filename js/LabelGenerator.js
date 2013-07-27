@@ -12,9 +12,8 @@ LabelGenerator.prototype.init = function() {
 	return this;
 }
 
-
 LabelGenerator.prototype.addWineLabelDiv = function() {
-	var context = {
+	var context = ko.observable({
 		name: ko.observable("Waiki"),
 		nameEditable: ko.observable(false),
 		editName: function() {
@@ -41,7 +40,7 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 			this.color("red");
 		}
 
-	};
+	});
 
 	this.viewModel.push(context);
 }

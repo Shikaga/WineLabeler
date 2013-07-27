@@ -42,7 +42,6 @@
 				</div>
 			</div>
 		</script>
-
 	</head>
 
 	<body>
@@ -50,13 +49,30 @@
 		<span data-bind="template: { name: 'entry-template', foreach: labelGenerator.viewModel }"></span>
 		<span class="wineLabel addWineLabel">
 			<button class="addWineLabelButton" onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine</button>
+			<div>
+				Wine Name : <input value=""/>
+				<div>
+					Suggestions
+				</div>
+				<div>
+					Description : <input value="">
+				</div>
+				<div>
+					Drink before date: <input value="">
+				</div>
+				<button onclick="addWineFromFields">Confirm</button>
+			</div>
 		</span>
 	</body>
 
 	<script>
 		var labelGenerator = new LabelGenerator;
 		labelGenerator.init();
-		labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
+
+		function addWineFromFields() {
+			debugger;
+		}
+		//labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
 	</script>
 
 
