@@ -18,9 +18,14 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 		name: ko.observable("Waiki"),
 		description: ko.observable("Lovely New World Red"),
 		drinkByYear: ko.observable(2018),
+		drinkByYearEditable: ko.observable(true),
 		makeOlder: function(){
 			this.drinkByYear(this.drinkByYear()+1);
-		}};
+		},
+		editDrinkByYear: function() {
+			this.drinkByYearEditable(!this.drinkByYearEditable);
+		}
+	};
 
 	this.viewModel.push(context);
 }

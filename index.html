@@ -25,8 +25,10 @@
 
 					</div>
 				</div>
-				<div class="footer">
-					Drink by : {{drinkByYear}}
+				<div data-bind="click: editDrinkByYear" class="footer">
+					Drink by :
+					<span data-bind="visible: drinkByYearEditable">{{drinkByYear}}</span>
+					<input data-bind="value: drinkByYear, visible: !drinkByYearEditable()" />
 				</div>
 				<button data-bind='click: makeOlder'>Make Older</button>
 			</div>
