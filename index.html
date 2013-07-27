@@ -14,6 +14,8 @@
 
 		<script id="entry-template" type="text/x-handlebars-template">
 			<div class="wineLabel">
+				<div class="bottleneckOuter">
+				</div>
 				<div class="header">
 					<span data-bind="click: editName, visible: !nameEditable()">{{name}}</span>
 					<input data-bind="value: name, visible: nameEditable, hasFocus: nameEditable" />
