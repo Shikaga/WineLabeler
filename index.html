@@ -13,7 +13,13 @@
 		</script>
 
 		<script id="entry-template" type="text/x-handlebars-template">
-			<div class="wineLabel">
+			<div class="wineLabel {{color}}">
+				<div class="colorButtons">
+					<!--TODO: See if there is a better way to bind these-->
+					<button class="colorButton" data-bind="click: setColorWhite">White</button>
+					<button class="colorButton" data-bind="click: setColorRose">Rose</button>
+					<button class="colorButton" data-bind="click: setColorRed">Red</button>
+				</div>
 				<div class="bottleneckOuter">
 				</div>
 				<div class="header">

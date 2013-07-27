@@ -29,7 +29,18 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 		drinkByYearEditable: ko.observable(false),
 		editDrinkByYear: function() {
 			this.drinkByYearEditable(!this.drinkByYearEditable());
+		},
+		color: ko.observable("white"),
+		setColorWhite: function() {
+			this.color("white");
+		},
+		setColorRose: function() {
+			this.color("rose");
+		},
+		setColorRed: function() {
+			this.color("red");
 		}
+
 	};
 
 	this.viewModel.push(context);

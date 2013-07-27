@@ -23,7 +23,6 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 
 .wineLabel {
 	text-align: center;
-	background-color: #faf2cc;
 	width: 300px;
 	min-height: 900px;
 	float: left;
@@ -49,4 +48,20 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 
 .wineLabel .footer {
 	height: 50px;
+}
+
+.colorButtons {
+	float: right;
+}
+
+.white {
+	background-color: #faf2cc;
+}
+
+.rose {
+	background-color: #f8b9b7;
+}
+
+.red {
+	background-color: #942a25;
 }
