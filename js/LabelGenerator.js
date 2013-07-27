@@ -16,14 +16,19 @@ LabelGenerator.prototype.init = function() {
 LabelGenerator.prototype.addWineLabelDiv = function() {
 	var context = {
 		name: ko.observable("Waiki"),
-		description: ko.observable("Lovely New World Red"),
-		drinkByYear: ko.observable(2018),
-		drinkByYearEditable: ko.observable(true),
-		makeOlder: function(){
-			this.drinkByYear(this.drinkByYear()+1);
+		nameEditable: ko.observable(false),
+		editName: function() {
+			this.nameEditable(!this.nameEditable());
 		},
+		description: ko.observable("Lovely New World Red"),
+		descriptionEditable: ko.observable(false),
+		editDescription: function() {
+			this.descriptionEditable(!this.descriptionEditable());
+		},
+		drinkByYear: ko.observable(getCurrentYear()),
+		drinkByYearEditable: ko.observable(false),
 		editDrinkByYear: function() {
-			this.drinkByYearEditable(!this.drinkByYearEditable);
+			this.drinkByYearEditable(!this.drinkByYearEditable());
 		}
 	};
 

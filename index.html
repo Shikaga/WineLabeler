@@ -2,7 +2,7 @@
 	<head>
 		<title>Wine Labeler</title>
 		<link rel="stylesheet" href="css/main.css">
-
+		<script type="text/javascript" src="js/utilities.js"></script>
 		<script type="text/javascript" src="lib/mustache.js"></script>
 		<script type="text/javascript" src="lib/knockout.js"></script>
 		<script type="text/javascript" src="lib/ko.mustache.js"></script>
@@ -15,22 +15,23 @@
 		<script id="entry-template" type="text/x-handlebars-template">
 			<div class="wineLabel">
 				<div class="header">
-					{{name}}
+					<span data-bind="click: editName, visible: !nameEditable()">{{name}}</span>
+					<input data-bind="value: name, visible: nameEditable, hasFocus: nameEditable" />
 				</div>
 				<div class="body">
 					<div class="description">
-						{{description}}
+						<span data-bind="click: editDescription, visible: !descriptionEditable()">{{description}}</span>
+						<input data-bind="value: description, visible: descriptionEditable, hasFocus: descriptionEditable" />
 					</div>
 					<div class="other">
-
 					</div>
 				</div>
-				<div data-bind="click: editDrinkByYear" class="footer">
+				<div class="footer">
 					Drink by :
-					<span data-bind="visible: drinkByYearEditable">{{drinkByYear}}</span>
-					<input data-bind="value: drinkByYear, visible: !drinkByYearEditable()" />
+					<span data-bind="click: editDrinkByYear, visible: !drinkByYearEditable()">{{drinkByYear}}</span>
+					<!--TODO: Write blog about order of visible and hasFocus-->
+					<input data-bind="value: drinkByYear, visible: drinkByYearEditable, hasFocus: drinkByYearEditable" />
 				</div>
-				<button data-bind='click: makeOlder'>Make Older</button>
 			</div>
 		</script>
 
