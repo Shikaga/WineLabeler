@@ -13,7 +13,9 @@ LabelGenerator.prototype.init = function() {
 }
 
 LabelGenerator.prototype.addWineLabelDiv = function() {
+	var self = this;
 	var context = ko.observable({
+		labelGenerator: self,
 		name: ko.observable("Waiki"),
 		nameEditable: ko.observable(false),
 		editName: function() {
@@ -38,9 +40,33 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 		},
 		setColorRed: function() {
 			this.color("red");
+		},
+		dup: function() {
+			this.labelGenerator.duplicate(this);
 		}
 
 	});
 
 	this.viewModel.push(context);
+}
+
+LabelGenerator.prototype.duplicate = function(labelViewModel) {
+	cloneObj = function(obj){
+		if(ko.isWriteableObservable(obj)) return ko.observable(obj()); //this is the trick
+		if(obj === null || typeof obj !== 'object') return obj;
+		var clone = {};
+		for (var key in obj) {
+			if (obj[key].getSubscriptionsCount !== undefined) {
+				var newKoObservable = ko.observable(obj[key]())
+				clone[key] = newKoObservable;
+			} else {
+				clone[key] = obj[key];
+			}
+		}
+
+		return clone;
+	};
+
+	var viewModelClone = cloneObj(labelViewModel);
+	this.viewModel.push(viewModelClone);
 }
