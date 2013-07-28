@@ -14,7 +14,7 @@ LabelGenerator.prototype.init = function() {
 
 LabelGenerator.prototype.addWineLabelDiv = function() {
 	var self = this;
-	var context = ko.observable({
+	var context = {
 		labelGenerator: self,
 		name: ko.observable("Waiki"),
 		nameEditable: ko.observable(false),
@@ -41,11 +41,14 @@ LabelGenerator.prototype.addWineLabelDiv = function() {
 		setColorRed: function() {
 			this.color("red");
 		},
-		dup: function() {
+		duplicate: function() {
 			this.labelGenerator.duplicate(this);
+		},
+		remove: function() {
+			this.labelGenerator.remove(this);
 		}
 
-	});
+	};
 
 	this.viewModel.push(context);
 }
@@ -63,10 +66,12 @@ LabelGenerator.prototype.duplicate = function(labelViewModel) {
 				clone[key] = obj[key];
 			}
 		}
-
 		return clone;
 	};
-
 	var viewModelClone = cloneObj(labelViewModel);
 	this.viewModel.push(viewModelClone);
+}
+
+LabelGenerator.prototype.remove = function(labelViewControl) {
+	this.viewModel.remove(labelViewControl);
 }
