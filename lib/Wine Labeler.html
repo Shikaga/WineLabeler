@@ -48,27 +48,21 @@
 		</script>
 
 		<script id="new-wine-template" type="text/x-handlebars-template">
-			<span class="wineLabel addWineLabel {{color}}">
+			<span class="wineLabel addWineLabel">
+				<button class="addWineLabelButton"
+						onclick="labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'))">Add Wine</button>
 				<div>
-					<div>Wine Name</div>
-					<input data-bind="value: name"/>
+					Wine Name : <input data-bind="value: name"/>
 					<div>
 						Suggestions
 					</div>
 					<div>
-						<div>Color</div>
-						<button data-bind="click: setColorWhite">White</button>
-						<button data-bind="click: setColorRose">Rose</button>
-						<button data-bind="click: setColorRed">Red</button>
+						Description : <input data-bind="value: description">
 					</div>
 					<div>
-						<div>Description</div><input data-bind="value: description">
+						Drink before date: <input data-bind="value: drinkByYear">
 					</div>
-					<div>
-						<div>Drink before date</div><input data-bind="value: drinkByYear">
-					</div>
-					<button class="addWineLabelButton"
-							data-bind="click: confirm">Add Wine</button>
+				<button onclick="confirm">Confirm</button>
 			</div>
 		</span>
 
@@ -88,7 +82,7 @@
 		function addWineFromFields() {
 			debugger;
 		}
-		//labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
+		labelGenerator.addWineLabelDiv(document.getElementById('wineLabels'));
 	</script>
 
 
