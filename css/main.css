@@ -1,5 +1,14 @@
 body {
 	margin: 0px;
+	-webkit-print-color-adjust:exact;
+}
+
+@media print
+{
+	.noPrint
+	{
+		display:none;
+	}
 }
 
 #testbar
@@ -23,17 +32,17 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 
 .wineLabel {
 	text-align: center;
-	width: 300px;
-	min-height: 800px;
+	width: 280px;
+	min-height: 600px;
 	float: left;
 	margin: 15px;
 }
 
 .wineLabel .bottleneckOuter {
 	background-color:white;
-	height: 150px;
-	width: 150px;
-	margin: 75px;
+	height: 100px;
+	width: 100px;
+	margin: 50px 90px;
 }
 
 .wineLabel .header {
@@ -43,7 +52,7 @@ a.testbar:link,a.testbar:visited,a.testbar:hover,a.testbar:active
 }
 
 .wineLabel .description {
-	height: 250px;
+	height: 150px;
 	font-size: 1.5em;
 	font-weight: bold;
 	margin: 50px;

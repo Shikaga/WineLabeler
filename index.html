@@ -13,17 +13,19 @@
 			ko.setTemplateEngine(new ko.mustacheTemplateEngine());
 		</script>
 
+		<style type="text/css" media="print">
+			@page { size: landscape; }
+		</style>
+
 		<script id="entry-template" type="text/x-handlebars-template">
 			<div class="wineLabel {{color}}">
-				<div class="colorButtons">
+				<div class="colorButtons noPrint">
+					<button class="colorButtons" data-bind="click: remove">Remove</button>
+					<button class="colorButtons" data-bind="click: duplicate">Duplicate</button>
 					<!--TODO: See if there is a better way to bind these-->
 					<button class="colorButton" data-bind="click: setColorWhite">White</button>
 					<button class="colorButton" data-bind="click: setColorRose">Rose</button>
 					<button class="colorButton" data-bind="click: setColorRed">Red</button>
-				</div>
-				<div>
-					<button class="colorButtons" data-bind="click: remove">Remove</button>
-					<button class="colorButtons" data-bind="click: duplicate">Duplicate</button>
 				</div>
 				<div class="bottleneckOuter">
 				</div>
@@ -49,7 +51,7 @@
 		</script>
 
 		<script id="new-wine-template" type="text/x-handlebars-template">
-			<span class="wineLabel addWineLabel {{color}}">
+			<span class="wineLabel addWineLabel noPrint {{color}}">
 				<div>
 					<div>Wine Name</div>
 					<input data-bind="value: name"/>
@@ -77,7 +79,6 @@
 	</head>
 
 	<body>
-		<div id="testbar"><a class="testbar" href="test/test.html" target="_blank">Run the Tests!</a></div>
 		<span data-bind="template: { name: 'entry-template', foreach: labelGenerator.wineLabelArray }"></span>
 		<span data-bind="template: { name: 'new-wine-template', data: labelGenerator.newWineLabel }"></span>
 	</body>
